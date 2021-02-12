@@ -8,9 +8,9 @@ WITH report AS (
         ad_group_name,
         ad_name,
         cost,
-        SBLA.DECODE_URI_COMPONENT(
-        REGEXP_EXTRACT(creative_thumbnail_url, r"[?&]url=([^&]+)")
-        ) AS extracted_url,
+        creative_title,
+        creative_image_url,
+        creative_thumbnail_url,
         offsite_conversions_fb_pixel_purchase,
         offsite_conversion_value_fb_pixel_purchase,
         reach,
@@ -19,6 +19,11 @@ WITH report AS (
         `sugatan-290314.SBLA.FBADS_AD_*`
 )
 SELECT
-    *  
+    DISTINCT ad_name,
+    SBLA.DECODE_URI_COMPONENT(
+        REGEXP_EXTRACT(creative_thumbnail_url, r "[?&]source=([^&]+)")
+    )
 FROM
     report
+WHERE
+    ad_name = "Image - Neck's Best Thing - Clinical V1 - Neck XL"
