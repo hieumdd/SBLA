@@ -3,14 +3,14 @@ WITH groupby AS (
         start_of_week,
         ad_group_name,
         ROUND(SUM(cost), 2) AS cost,
-        SUM(offsite_conversions_fb_pixel_purchase) AS purchases,
+        SUM(purchase) AS purchases,
         ROUND(
-            SUM(offsite_conversion_value_fb_pixel_purchase),
+            SUM(revenue),
             2
         ) AS revenue,
         ROUND(
             SAFE_DIVIDE(
-                SUM(offsite_conversion_value_fb_pixel_purchase),
+                SUM(revenue),
                 SUM(cost)
             ),
             2

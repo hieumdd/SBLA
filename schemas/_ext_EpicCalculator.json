@@ -1,0 +1,57 @@
+[
+    {
+        "name": "startOfMonth",
+        "type": "DATE",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "weekNumInMonth",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "monthBudget",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "projectMonthROAS",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "projectedAllocation",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "projectedSpend",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "projectedDailySpend",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "actualAllocation",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "actualSpend",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "actualDailySpend",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "_updatedAt",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    }
+]
