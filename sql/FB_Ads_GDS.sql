@@ -4,6 +4,7 @@ WITH report AS (
         campaign_name,
         ad_group_name,
         ad_name,
+        creative_name,
         cost,
         SBLA.DECODE_URI_COMPONENT(
             REGEXP_EXTRACT(creative_thumbnail_url, "[?&]url=([^&]+)")

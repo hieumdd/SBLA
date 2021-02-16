@@ -43,6 +43,26 @@ min_date AS (
     WHERE
         row_num = 1
 )
+,
+max_date AS (
+    SELECT
+        *
+    FROM
+        (
+            SELECT
+                ad_name,
+                date,
+                ROW_NUMBER() OVER (
+                    PARTITION BY ad_name
+                    ORDER BY
+                        date DESC
+                ) AS row_num
+            FROM
+                `sugatan-290314.SBLA.FB_Ads_GDS`
+        )
+    WHERE
+        row_num = 1
+)
 SELECT
     gb.*,
     RANK() OVER (
@@ -50,10 +70,13 @@ SELECT
         ORDER BY
             roas DESC
     ) AS rank_ads,
-    mind.date AS date_introduced
+    mind.date AS date_introduced,
+    maxd.date AS last_date,
+    DATE_DIFF(maxd.date, mind.date, DAY) AS duration
 FROM
     groupby gb
     LEFT JOIN min_date mind ON gb.ad_name = mind.ad_name
+    LEFT JOIN max_date maxd ON gb.ad_name = maxd.ad_name
 ORDER BY
     adj_start_of_month DESC,
     start_of_week DESC,

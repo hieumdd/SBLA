@@ -50,6 +50,36 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "salesLaunchesDuration",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "salesLaunchesName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "salesLaunchesOffer",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "salesLaunchesGraphicAssets",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "salesLaunchesVideoAssets",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "salesLaunchesProjectedSpend",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "_updatedAt",
         "type": "TIMESTAMP",
         "mode": "NULLABLE"
