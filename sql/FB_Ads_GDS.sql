@@ -10,14 +10,13 @@ WITH report AS (
         ) AS extracted_url,
         offsite_conversions_fb_pixel_purchase AS purchase,
         offsite_conversion_value_fb_pixel_purchase AS revenue,
-        reach,
-        --SAFE_DIVIDE(offsite_conversion_value_fb_pixel_purchase, cost) AS roas
+        reach
     FROM
         `sugatan-290314.SBLA.FBADS_AD_*`
 )
 SELECT
     rt.*,
-    cl.start_of_month,
+    cl.adj_start_of_month,
     cl.start_of_week
 FROM
     report rt

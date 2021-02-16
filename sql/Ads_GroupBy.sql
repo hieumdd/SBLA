@@ -1,5 +1,6 @@
 WITH groupby AS (
     SELECT
+        adj_start_of_month,
         start_of_week,
         ad_name,
         ANY_VALUE(extracted_url) AS image_url,
@@ -19,6 +20,7 @@ WITH groupby AS (
     FROM
         `sugatan-290314.SBLA.FB_Ads_GDS`
     GROUP BY
+        adj_start_of_month,
         start_of_week,
         ad_name
 ),
@@ -53,5 +55,6 @@ FROM
     groupby gb
     LEFT JOIN min_date mind ON gb.ad_name = mind.ad_name
 ORDER BY
+    adj_start_of_month DESC,
     start_of_week DESC,
     ad_name
