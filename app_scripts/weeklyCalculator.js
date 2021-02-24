@@ -1,8 +1,10 @@
 function main() {
     const spreadsheetId = '1Yc_HfwprqH_pCZkzrZb5yxgzgoVqMcq5XOJ0eCbBA8M';
-    const ss = SpreadsheetApp.openById(spreadsheetId);
+    // const ss = SpreadsheetApp.openById(spreadsheetId);
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
 
-    const calculatorSheet = ss.getSheetByName('Final Template');
+    // const calculatorSheet = ss.getSheetByName('Final Template');
+    const calculatorSheet = ss.getActiveSheet();
     const exportsSheet = ss.getSheetByName('exports');
 
     const startOfMonthRange = "H13";
@@ -84,6 +86,8 @@ function main() {
             ]
         )
     }
+    Logger.log(row)
+    Logger.log(row.length)
 
     exportsSheet.insertRows(2, 5)
     var targetRange = exportsSheet.getRange("A2:Q6")
