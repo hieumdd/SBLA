@@ -1,28 +1,32 @@
 function main() {
     const spreadsheetId = '1Yc_HfwprqH_pCZkzrZb5yxgzgoVqMcq5XOJ0eCbBA8M';
     const ss = SpreadsheetApp.openById(spreadsheetId);
+    // const ss = SpreadsheetApp.getActiveSpreadsheet();
 
-    const calculatorSheet = ss.getSheetByName('Final Template');
+    // const calculatorSheet = ss.getSheetByName('Final Template');
+    const sheetToExports = ss.getSheetByName('config').getRange('A2').getValue();
+    const calculatorSheet = ss.getSheetByName(sheetToExports);
     const exportsSheet = ss.getSheetByName('exports');
+
 
     const startOfMonthRange = "H13";
     const monthBudgetRange = "D5";
     const projectedMonthROASRange = "H5";
 
-    const projectedAllocationRange = "K113:K117";
-    const projectedSpendRange = "L113:L117";
-    const projectedDailySpendRange = "M113:M117";
+    const projectedAllocationRange = "E147:E151";
+    const projectedSpendRange = "F147:F151";
+    const projectedDailySpendRange = "G147:G151";
 
-    const actualAllocationRange = "N113:N117";
-    const actualSpendRange = "O113:O117";
-    const actualDailySpendRange = "P113:P117";
+    const actualAllocationRange = "N147:N151";
+    const actualSpendRange = "O147:O151";
+    const actualDailySpendRange = "P147:P151";
 
-    const salesLaunchesDurationRange = "D89:D93";
-    const salesLaunchesNameRange = "E89:E93"
-    const salesLaunchesOfferRange = "F89:F93"
-    const salesLaunchesGraphicAssetsRange = "I89:I93"
-    const salesLaunchesVideoAssetsRange = "G89:G93"
-    const salesLaunchesProjectedSpendRange = "L89:L93"
+    const salesLaunchesDurationRange = "D123:D127";
+    const salesLaunchesNameRange = "E123:E127"
+    const salesLaunchesOfferRange = "F123:F127"
+    const salesLaunchesGraphicAssetsRange = "I123:I127"
+    const salesLaunchesVideoAssetsRange = "G123:G127"
+    const salesLaunchesProjectedSpendRange = "L123:L127"
     
     var now = new Date().toISOString()
 
@@ -84,6 +88,8 @@ function main() {
             ]
         )
     }
+    Logger.log(row)
+    Logger.log(row.length)
 
     exportsSheet.insertRows(2, 5)
     var targetRange = exportsSheet.getRange("A2:Q6")
